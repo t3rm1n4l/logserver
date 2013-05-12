@@ -2,7 +2,7 @@
 import os
 
 UI_PAGE_LIMIT = 5
-ELASTICSEARCH_URL = 'http://172.16.21.139:9200'
+ELASTICSEARCH_URL = 'http://localhost:9200'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

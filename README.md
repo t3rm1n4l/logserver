@@ -1,9 +1,7 @@
 Logserver
 =========
 This is a helper project to setup a log collection server using opensource tools.
-Logstash and elasticsearch are two powerful tools that can be combined together to build a highly scalable log indexing and search tool. Logstash can receive logs from many sources such as rsyslog, redis, etc and is able write output in different formats.
-
-This repo consists of helper scripts and a django based user interface prototype for collecting logs, indexing them using logstash, redis, elasticsearch and ability to search for userdata through elasticsearch.
+Logstash and elasticsearch are two powerful tools that can be combined together to build a highly scalable log indexing and search tool. Logstash can receive logs from many sources such as rsyslog, redis, etc and is able write output in different formats. Elasticsearch is used for text indexing.
 
 ## Platform
 Ubuntu 13.04
@@ -15,7 +13,7 @@ Ubuntu 13.04
 
 The installer will install the following tools:
 
-1. redis-server 
+1. redis-server
 2. elasticsearch
 3. logstash
 4. kibana ui
@@ -24,13 +22,14 @@ The installer will install the following tools:
 A django userlog search console is available at django_ui directory.
 
     cd django_ui
+    # Update ELASTICSEARCH_URL in settings.py
     python manage.py runserver
 
 
 ## Testing
     cd logserver_setup/client
     ./testlogger.sh
-    ./userlog.py 
+    ./userlog.py
 
 
 ## Notes
