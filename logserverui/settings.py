@@ -1,10 +1,12 @@
 # Django settings for logserverui project.
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UI_PAGE_LIMIT = 5
+ELASTICSEARCH_URL = 'http://172.16.21.139:9200'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),

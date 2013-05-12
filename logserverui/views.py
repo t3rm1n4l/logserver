@@ -1,8 +1,8 @@
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from logserverui.lib.userlog import UserLogFetcher
+from django.conf import settings
 
-page_limit = 5
+page_limit = settings.UI_PAGE_LIMIT
 
 def index(request):
     uid = 0
@@ -27,14 +27,14 @@ def index(request):
     if hours:
         current_hours = "%d" %hours
 
-    ufetcher = UserLogFetcher('http://172.16.21.139:9200')
+    ufetcher = UserLogFetcher(settings.ELASTICSEARCH_URL)
     count, messages = ufetcher.get_userlog(uid, hours, page*page_limit, page_limit)
 
     maxpages = count/page_limit
     if count % page_limit:
         maxpages += 1
-    pages = []
 
+    pages = []
     for i in xrange(maxpages):
         enable_str = "enabled"
         if page == i:
