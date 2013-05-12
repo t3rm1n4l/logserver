@@ -26,6 +26,12 @@
             <button type="submit" class="btn">Submit</button>
         </form>
         <hr>
+        {% if error %}
+        <div class="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Warning!</strong> {{ error }}
+        </div>
+        {% else %}
         <h3>Messages</h3>
         <table class="table table-bordered">
             <tr><th>Timestamp</th><th>Message</th></tr>
@@ -42,6 +48,7 @@
             {% endfor %}
             </ul>
         </div>
+        {% endif %}
 
     </div>
   </body>
