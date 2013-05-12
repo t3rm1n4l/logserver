@@ -1,0 +1,22 @@
+#!/bin/bash
+
+start () {
+    /usr/lib/jvm/default-java/bin/java -Xms512m -Xmx512m -jar logstash.jar agent -f indexer.conf &
+
+    echo "Started $0"
+    echo $$ > /var/run/logstash_indexer.pid
+}
+
+stop() {
+    pid=$(cat /var/run/logstash_indexer.pid)
+    kill -9 "-$pid"
+    echo "Stopped $0"
+}
+
+if [[ "$1" == "start" ]];
+then
+    stop;
+    start;
+else
+    stop
+fi
