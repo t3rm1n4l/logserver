@@ -14,13 +14,13 @@
             <div class="control-group">
                 <label class="control-label">User ID</label>
                 <div class="controls">
-                    <input type="text" name="uid" placeholder="1023">
+                    <input type="text" name="uid" placeholder="user id" {% if uid %} value="{{ uid }}" {% endif %}>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Recent hours</label>
                 <div class="controls">
-                    <input type="text" name="hrs" placeholder="1">
+                    <input type="text" name="hours" placeholder="hours" {% if hours %} value ="{{ hours }}" {% endif %}>
                 </div>
             </div>
             <button type="submit" class="btn">Submit</button>
@@ -29,16 +29,17 @@
         <h3>Messages</h3>
         <table class="table table-bordered">
             <tr><th>Timestamp</th><th>Message</th></tr>
-            <tr><td>2011-01-01 11:12:01</td><td>An example log message</td></tr>
+            {% for ts,msg in messages %}
+            <tr><td>{{ ts }}</td><td>{{ msg }}</td></tr>
+            {% endfor %}
 
         </table>
 
         <div class="pagination">
             <ul>
-                <li><a href="#">1</a></li>
-                <li class="enabled"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
+            {% for id,url,enabled in pages %}
+                <li class="{{ enabled }}" ><a href="{{ url }}">{{ id }}</a></li>
+            {% endfor %}
             </ul>
         </div>
 
