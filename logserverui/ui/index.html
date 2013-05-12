@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Log search console</h1>
+        <form class="form-horizontal" method="GET">
+            <legend>Search</legend>
+            <div class="control-group">
+                <label class="control-label">User ID</label>
+                <div class="controls">
+                    <input type="text" name="uid" placeholder="1023">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Recent hours</label>
+                <div class="controls">
+                    <input type="text" name="hrs" placeholder="1">
+                </div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <hr>
+        <h3>Messages</h3>
+        <table class="table table-bordered">
+            <tr><th>Timestamp</th><th>Message</th></tr>
+            <tr><td>2011-01-01 11:12:01</td><td>An example log message</td></tr>
+
+        </table>
+
+        <div class="pagination">
+            <ul>
+                <li><a href="#">1</a></li>
+                <li class="enabled"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+            </ul>
+        </div>
+
+    </div>
+  </body>
+</html>
+
+
+
